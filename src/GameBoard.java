@@ -74,7 +74,7 @@ public class GameBoard extends JPanel implements ActionListener {
     }
 
     private int specialBallTimer = 0;
-    private final int SPECIAL_BALL_SPAWN_RATE = 900; // Example value, adjust as needed
+    private final int SPECIAL_BALL_SPAWN_RATE = 500; // Example value, adjust as needed
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -156,10 +156,10 @@ public class GameBoard extends JPanel implements ActionListener {
             // Check collision with left paddle
             if (specialBallX <= 5 + PADDLE_WIDTH && specialBallY + specialBallSize >= paddle1Y && specialBallY <= paddle1Y + PADDLE_HEIGHT) {
                 if (specialBallColor == Color.BLUE) {
-                    paddle1Y = Math.max(paddle1Y - 20, 0);
-                    PADDLE_HEIGHT = Math.min(PADDLE_HEIGHT + 40, MAX_PADDLE_HEIGHT);
+                    //paddle1Y = Math.max(paddle1Y - 20, 0);
+                    paddle1Y = Math.min(paddle1Y + 40, MAX_PADDLE_HEIGHT);
                 } else if (specialBallColor == Color.RED) {
-                    PADDLE_HEIGHT = Math.max(PADDLE_HEIGHT - 40, MIN_PADDLE_HEIGHT);
+                    paddle1Y = Math.max(paddle1Y - 40, MIN_PADDLE_HEIGHT);
                 }
                 specialBallActive = false; // Deactivate the special ball after collision
                 return; // Exit the method to avoid processing collisions with the other paddle
@@ -167,10 +167,10 @@ public class GameBoard extends JPanel implements ActionListener {
             // Check collision with right paddle
             if (specialBallX + specialBallSize >= WIDTH - PADDLE_WIDTH - 5 && specialBallY + specialBallSize >= paddle2Y && specialBallY <= paddle2Y + PADDLE_HEIGHT) {
                 if (specialBallColor == Color.BLUE) {
-                    paddle2Y = Math.max(paddle2Y - 20, 0);
-                    PADDLE_HEIGHT = Math.min(PADDLE_HEIGHT + 40, MAX_PADDLE_HEIGHT);
+                    //paddle2Y = Math.max(paddle2Y - 20, 0);
+                    paddle2Y = Math.min(paddle2Y + 40, MAX_PADDLE_HEIGHT);
                 } else if (specialBallColor == Color.RED) {
-                    PADDLE_HEIGHT = Math.max(PADDLE_HEIGHT - 40, MIN_PADDLE_HEIGHT);
+                    paddle2Y = Math.max(paddle2Y - 40, MIN_PADDLE_HEIGHT);
                 }
                 specialBallActive = false; // Deactivate the special ball after collision
                 return; // Exit the method to avoid processing collisions with the other paddle
