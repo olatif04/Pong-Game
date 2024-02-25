@@ -24,18 +24,15 @@ public class PongGame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.pack();
-        frame.setLocationRelativeTo(null); // Center the game window
+        frame.setLocationRelativeTo(null);
 
-        // Adjust action listeners
+
         startItem.addActionListener(e -> showSpeedSelectionDialog(gameBoard));
         restartItem.addActionListener(e -> gameBoard.restartGame());
         quitItem.addActionListener(e -> System.exit(0));
 
-        // Show the speed selection dialog before making the frame visible
-        // This ensures the player selects a speed before the game starts
         showSpeedSelectionDialog(gameBoard);
 
-        // Make the frame visible after the speed has been selected
         frame.setVisible(true);
     }
 
@@ -43,7 +40,7 @@ public class PongGame {
         JDialog speedDialog = new JDialog();
         speedDialog.setTitle("Select Ball Speed");
         speedDialog.setLayout(new FlowLayout());
-        speedDialog.setSize(300, 100);
+        speedDialog.setSize(300, 200);
         speedDialog.setResizable(false);
         speedDialog.setLocationRelativeTo(null);
         speedDialog.setModal(true);
