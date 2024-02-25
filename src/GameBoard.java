@@ -162,6 +162,7 @@ public class GameBoard extends JPanel implements ActionListener {
                     PADDLE_HEIGHT = Math.max(PADDLE_HEIGHT - 40, MIN_PADDLE_HEIGHT);
                 }
                 specialBallActive = false; // Deactivate the special ball after collision
+                return; // Exit the method to avoid processing collisions with the other paddle
             }
             // Check collision with right paddle
             if (specialBallX + specialBallSize >= WIDTH - PADDLE_WIDTH - 5 && specialBallY + specialBallSize >= paddle2Y && specialBallY <= paddle2Y + PADDLE_HEIGHT) {
@@ -172,9 +173,12 @@ public class GameBoard extends JPanel implements ActionListener {
                     PADDLE_HEIGHT = Math.max(PADDLE_HEIGHT - 40, MIN_PADDLE_HEIGHT);
                 }
                 specialBallActive = false; // Deactivate the special ball after collision
+                return; // Exit the method to avoid processing collisions with the other paddle
             }
         }
     }
+
+
 
 
 
