@@ -72,7 +72,6 @@ public class GameBoard extends JPanel implements ActionListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        // Set color and fonts for the scores
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.BOLD, 30));
         g.drawString("Player 1: " + score1, 100, 50);
@@ -104,20 +103,17 @@ public class GameBoard extends JPanel implements ActionListener {
         repaint();
     }
     private void updatePaddlePositions() {
-        // Update paddle 1 position
         if (paddle1MovingUp) {
-            paddle1Y = Math.max(paddle1Y - 3, 0); // Adjust the increment for smooth movement
+            paddle1Y = Math.max(paddle1Y - 3, 0); //adjust the increment for smooth movement
         }
         if (paddle1MovingDown) {
-            paddle1Y = Math.min(paddle1Y + 3, HEIGHT - PADDLE_HEIGHT); // Adjust the increment for smooth movement
+            paddle1Y = Math.min(paddle1Y + 3, HEIGHT - PADDLE_HEIGHT); //adjust the increment for smooth movement
         }
-
-        // Update paddle 2 position
         if (paddle2MovingUp) {
-            paddle2Y = Math.max(paddle2Y - 3, 0); // Adjust the increment for smooth movement
+            paddle2Y = Math.max(paddle2Y - 3, 0); //adjust the increment for smooth movement
         }
         if (paddle2MovingDown) {
-            paddle2Y = Math.min(paddle2Y + 3, HEIGHT - PADDLE_HEIGHT); // Adjust the increment for smooth movement
+            paddle2Y = Math.min(paddle2Y + 3, HEIGHT - PADDLE_HEIGHT); //adjust the increment for smooth movement
         }
     }
 
